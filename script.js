@@ -1,3 +1,6 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 const allSection = document.querySelectorAll("section");
 const checkbox = document.querySelector("input[id='checkbox']");
 const navList = document.querySelector(".nav__list");
