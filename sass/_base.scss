@@ -1,0 +1,113 @@
+$color-primary: #caa892;
+$color-primary-dark: #b0855b;
+$color-secondary: #37806b;
+$color-grey-dark: #212121;
+$color-grey-light: #646464;
+$color-primary-light: #c4c4c4;
+
+$max-width: 120rem;
+$tab-port-max-width: 100rem;
+$tab-land-max-width: 100rem;
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(-20rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    transform: translateX(20rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@mixin response($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 62.5em) {
+      @content;
+    } //1000px
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 71.875em) {
+      @content;
+    } //1150px
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 81.25em) {
+      @content;
+    } //1300px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  width: 100%;
+
+  @include response(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include response(tab-port) {
+    font-size: 50%;
+  }
+
+  @include response(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  color: $color-grey-light;
+  box-sizing: border-box;
+}
+
+$border-radius-small: 2rem 0 2rem;
+$border-radius-medium: 6.1rem 0 6rem 0;
+$border-radius-medium-1: 10rem 0 10rem 0;
+$border-radius-medium-2: 11rem 0 11rem 0;
+$border-radius-large: 14rem 0 14rem 0; //25% 100% 25% 100% / 25% 0% 25% 0%;
+
+.text-cap {
+  text-transform: capitalize;
+}
+.text-up {
+  text-transform: uppercase;
+}
+
+::selection {
+  background-color: rgba($color-primary-light, 0.9);
+}
